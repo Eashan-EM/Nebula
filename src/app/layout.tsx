@@ -15,14 +15,26 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className="dark">
-    <head>
-      </head>
-    <body className={`${poppins.className} antialiased min-h-screen w-full flex flex-col`}  style={{ backgroundImage: `url(${background.src})`}}>
-            <Providers>
-                <Nav />
-                <main className="flex-1 flex flex-col p-3">{children}</main>
-            </Providers>
-        </body>
-    </html>
+    return (
+        <html
+            lang="en"
+            className="dark"
+            style={{
+                backgroundImage: `url(${background.src})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center center',
+                backgroundAttachment: 'fixed',
+                minHeight: '100%'
+            }}
+        >
+            <head></head>
+            <body className={`${poppins.className} antialiased flex flex-col`}>
+                <Providers>
+                    <Nav />
+                    <main className="flex-1 flex flex-col p-3">{children}</main>
+                </Providers>
+            </body>
+        </html>
+    )
 }
