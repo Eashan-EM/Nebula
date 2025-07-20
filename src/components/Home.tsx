@@ -47,7 +47,7 @@ export default function Home() {
 			setLoading(true)
             setError(null)
             try {
-		const satsRes = await fetch('https://api.wheretheiss.at/v1/satellites')
+		        const satsRes = await fetch('https://api.wheretheiss.at/v1/satellites')
                 if (!satsRes.ok) throw new Error('Failed to fetch satellites')
                     const sats = await satsRes.json()
                 setSatellites(sats)
